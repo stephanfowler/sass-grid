@@ -16,23 +16,20 @@ $baseH     : $baseV*$ratio;
 $boxV      : $baseV*2;
 $boxH      : $baseH*2;
 
-@mixin grid {
-    $baseH     : $baseV*$ratio;
-    $boxV      : $baseV*2;
-    $boxH      : $baseH*2;
-    $boxVPad   : $boxTopPad+$boxBotPad;
-    $boxHPad   : $boxVPad * $ratio;
-    body {
-        line-height: $baseV;
-    }
-    .box {
-        margin: $boxTopPad $boxHPad/2 $boxBotPad $boxHPad/2;
-        width:  $boxH   - $boxHPad;
-        height: $boxV   - $boxVPad;
-    }
-}
+$baseH     : $baseV*$ratio;
+$boxV      : $baseV*2;
+$boxH      : $baseH*2;
+$boxVPad   : $boxTopPad+$boxBotPad;
+$boxHPad   : $boxVPad * $ratio;
 
-@include grid;
+body {
+    line-height: $baseV;
+}
+.box {
+    margin: $boxTopPad $boxHPad/2 $boxBotPad $boxHPad/2;
+    width:  $boxH   - $boxHPad;
+    height: $boxV   - $boxVPad;
+}
 
 body {
     font-famly: Georgia, serif;
