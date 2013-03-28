@@ -1,0 +1,81 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+$ratio     : 1.66666666;
+
+$baseV     : 1.4375em;
+//$boxTopPad : 0.25em;
+///$boxBotPad : 0.43125em;
+$boxTopPad : 0em;
+$boxBotPad : 0em;
+
+$baseH     : $baseV*$ratio;
+$boxV      : $baseV*2;
+$boxH      : $baseH*2;
+
+@mixin grid {
+    $baseH     : $baseV*$ratio;
+    $boxV      : $baseV*2;
+    $boxH      : $baseH*2;
+    $boxVPad   : $boxTopPad+$boxBotPad;
+    $boxHPad   : $boxVPad * $ratio;
+    body {
+        line-height: $baseV;
+    }
+    .box {
+        margin: $boxTopPad $boxHPad/2 $boxBotPad $boxHPad/2;
+        width:  $boxH   - $boxHPad;
+        height: $boxV   - $boxVPad;
+    }
+}
+
+@include grid;
+
+body {
+    font-famly: Georgia, serif;
+    position: relative;
+    color: #999;
+    background-color: #ddd;
+    //height: 320px;
+    margin: 0 auto;
+}
+.overlay {
+    position: absolute;
+    z-index: 2;
+}
+.box {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.5);
+    float: left;
+}
+.box:nth-child(2n) {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+.box:nth-child(3n) {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.junk {
+    //display: none;
+}
+
+/* Media queries */
+
+@media only screen and (min-width : 360px) and (max-width : 480px) {
+    body, html {
+        font-size  : 17.5px;
+        line-height: $baseV;
+    }
+}
+
+@for $i from 1 through 16 {
+    @media only screen and (min-width : ($i - 1) * $boxH) and (max-width : $i * $boxH - 1) {
+        body {
+            width:  ($i - 1) * $boxH;
+        }
+    }
+}

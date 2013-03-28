@@ -1,0 +1,38 @@
+.baseline {
+  font-size: 15px;
+  line-height: 20px;
+  font-famly: Georgia, serif;
+  position: relative; }
+
+.overlay {
+  position: absolute;
+  z-index: 2; }
+
+.box {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.5);
+  float: left;
+  margin: 3px 15.0px 6px 0; }
+
+.box-1 {
+  width: 51.66667px;
+  height: 31px; }
+
+.box-2 {
+  width: 118.33333px;
+  height: 71px; }
+
+.box-3 {
+  width: 251.66667px;
+  height: 151px; }
+
+/* devices */
+.device {
+  position: absolute;
+  z-index: 1;
+  background-color: rgba(0, 0, 200, 0.1); }
+
+.device-iphone4-portrait {
+  width: 320px;
+  height: 480px; }

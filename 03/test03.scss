@@ -1,0 +1,57 @@
+$fontsize: 15px;
+
+$ratio: 1.66666666;
+
+$baseV : 20px;
+$baseH : $baseV * $ratio;
+
+$boxV : $baseV * 2;
+$boxH : $baseH * 2;
+
+$boxTopPad: 3px;
+$boxBotPad: 6px;
+$boxVPad: $boxTopPad+$boxBotPad;
+
+$boxHPad: $boxVPad * $ratio;
+
+.baseline {
+    font-size: $fontsize;
+    line-height: $baseV;
+    font-famly: Georgia, serif;
+    position: relative;
+}
+.overlay {
+    position: absolute;
+    z-index: 2;
+}
+.box {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.5);
+    float: left;
+    margin: $boxTopPad $boxHPad $boxBotPad 0;
+}
+.box-1 {
+    width:  $boxH   - $boxHPad;
+    height: $boxV   - $boxVPad;
+}
+.box-2 {
+    width:  $boxH*2 - $boxHPad;
+    height: $boxV*2 - $boxVPad;
+}
+.box-3 {
+    width:  $boxH*4 - $boxHPad;
+    height: $boxV*4 - $boxVPad;
+}
+
+/* devices */
+
+.device {
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(0, 0, 200, 0.1);
+}
+.device-iphone4-portrait {
+    width: 320px;
+    height: 480px;
+}

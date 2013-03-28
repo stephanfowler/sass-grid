@@ -1,0 +1,71 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+$ratio     : 1.66666666;
+
+$fontsize  : 16px;
+$baseV     : 23px;
+$boxTopPad : 4px;
+$boxBotPad : 7px;
+
+$baseH     : $baseV*$ratio;
+$boxV      : $baseV*2;
+$boxH      : $baseH*2;
+$boxVPad   : $boxTopPad+$boxBotPad;
+$boxHPad   : $boxVPad * $ratio;
+
+.container {
+    font-size: $fontsize;
+    line-height: $baseV;
+}
+.box {
+    margin: $boxTopPad $boxHPad/2 $boxBotPad $boxHPad/2;
+}
+.box-1 {
+    width:  $boxH   - $boxHPad;
+    height: $boxV   - $boxVPad;
+}
+.box-2 {
+    width:  $boxH*2 - $boxHPad;
+    height: $boxV*2 - $boxVPad;
+}
+.box-3 {
+    width:  $boxH*4 - $boxHPad;
+    height: $boxV*4 - $boxVPad;
+}
+
+.container {
+    font-size: $fontsize;
+    font-famly: Georgia, serif;
+    position: relative;
+    color: #999;
+    background-color: #ddd;
+    height: 320px;
+    margin: 0 auto;
+}
+.overlay {
+    position: absolute;
+    z-index: 2;
+}
+.box {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.5);
+    float: left;
+}
+.junk {
+    //display: none;
+}
+
+/* Media queries */
+
+@for $i from 1 through 16 {
+    @media only screen and (min-width : ($i - 1) * $boxH) and (max-width : $i * $boxH - 1) {
+        .container {
+            width:  ($i - 1) * $boxH;
+        }
+    }
+}
+
