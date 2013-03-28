@@ -1,0 +1,152 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+$ratio     : 1.66666666;
+
+$fontsize  : 16px;
+$baseV     : 24px;
+$baseH     : $baseV*$ratio;
+$boxV      : $baseV*2;
+$boxH      : $baseH*2;
+$boxTopPad : 5px;
+$boxBotPad : 7px;
+$boxVPad   : $boxTopPad+$boxBotPad;
+$boxHPad   : $boxVPad * $ratio;
+
+@mixin grid {
+    $baseH     : $baseV*$ratio;
+    $boxV      : $baseV*2;
+    $boxH      : $baseH*2;
+    $boxTopPad : 5px;
+    $boxBotPad : 7px;
+    $boxVPad   : $boxTopPad+$boxBotPad;
+    $boxHPad   : $boxVPad * $ratio;
+    .baseline {
+        font-size: $fontsize;
+        line-height: $baseV;
+        padding: 0 $boxHPad/2;
+    }
+    .box {
+        margin: $boxTopPad $boxHPad/2 $boxBotPad $boxHPad/2; // equivalent to margin
+    }
+    .box-1 {
+        width:  $boxH   - $boxHPad;
+        height: $boxV   - $boxVPad;
+    }
+    .box-2 {
+        width:  $boxH*2 - $boxHPad;
+        height: $boxV*2 - $boxVPad;
+    }
+    .box-3 {
+        width:  $boxH*4 - $boxHPad;
+        height: $boxV*4 - $boxVPad;
+    }
+}
+
+.baseline {
+    font-size: $fontsize;
+    font-famly: Georgia, serif;
+    position: relative;
+    color: #999
+}
+.overlay {
+    position: absolute;
+    z-index: 2;
+}
+.box {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.5);
+    float: left;
+}
+
+/* Media queries */
+
+/* Phones */
+@media only screen and (min-width : 1px) {
+    $fontsize  : 16px;
+    $baseV     : 23px;
+    @include grid;
+}
+
+/* Tablet portrait */
+@media only screen and (min-width : 768px) and (max-width : 1023) {
+    $fontsize  : 16px;
+    $baseV     : 23px;
+    @include grid;
+}
+
+/* Tablet landscape */
+@media only screen and (min-width : 1024px) {
+    $fontsize  : 16px;
+    $baseV     : 23px;
+    @include grid;
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+}
+
+
+/* Devices */
+
+.device {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    text-align: right;
+    padding: $boxTopPad $boxVPad;
+}
+
+@media only screen and (min-width : 1px) and (max-width : 479px) {
+    .device-iphone-portrait {
+        width:  320px;
+        height: 480px;
+        background-color: rgba(0, 0, 255, 0.3);
+        z-index: 10;
+    }
+}
+
+@media only screen and (min-width : 480px) and (max-width : 567px) {
+    .device-iphone4-landscape {
+        width:  480px;
+        height: 320px;
+        background-color: rgba(0, 0, 255, 0.3);
+        z-index: 9;
+    }
+}
+
+@media only screen and (min-width : 567px) and (max-width : 767px) {
+    .device-iphone5-landscape {
+        width:  568px;
+        height: 320px;
+        background-color: rgba(0, 0, 255, 0.3);
+        z-index: 8;
+    }
+}
+
+@media only screen and (min-width : 768px) and (max-width : 1023px) {
+    .device-ipad-portrait {
+        width:  768px;
+        height: 1024px;
+        background-color: rgba(0, 255, 0, 0.2);
+        z-index: 7;
+    }
+}
+
+@media only screen and (min-width : 1024px) {
+    .device-ipad-landscape {
+        width:  1024px;
+        height: 768px;
+        background-color: rgba(0, 255, 0, 0.2);
+        z-index: 6;
+    }
+}
