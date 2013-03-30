@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Simulating vw unit via rem - CodePen</title>
+
+  <meta name="viewport" content="width=device-width">
+
+  <style>
+html { position: relative; }
+body { font-size: 12px; font-family: sans-serif; margin: 0; padding: 0;}
+
+.col { float: left; width: 33.3%; box-sizing: border-box; }
+.col.one { background: #CFF; }
+.col.two { background: #FFC; }
+.col.three { background: #FCF; font-size: 20px; padding: 50px; }
+
+.one, .two {
+
+  border: solid #666;
+  border-width: 10px; border-width: 0.01rem; /*1vw*/
+  border-radius: 30px; border-radius: 0.03rem; /*3vw*/
+  font-size: 20px; font-size: 0.02rem; /*2vw*/
+  padding: 20px; padding: 0.02rem; /*2vw*/
+}
+  </style>
+
+
+</head>
+
+<body>
+
+      <div class="col one">     
+      This example showcases use of (fake) vw unit. While things like width were already easy to tie to width of viewport, other properties, such as padding or font size or border radius were not. You should be able to see a couple of boxes with text, which are supposed to change font size, border width, border radius, and padding in response to viewport width changes.
+    </div>
+    <div class="col two">
+        This example showcases use of (fake) vw unit. While things like width were already easy to tie to width of viewport, other properties, such as padding or font size or border radius were not. You should be able to see a couple of boxes with text, which are supposed to change font size, border width, border radius, and padding in response to viewport width changes.
+    </div>
+    <div class="col three">
+        This column does not use the viewport width scaling, and so does not change (except in width) when the window is resized or device is rotated.
+    </div>
+
+  <script src=""></script>
+
+  <script>
+(function (doc, win) {
+    var docEl = doc.documentElement,
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+
+            docEl.style.fontSize = clientWidth + 'px';
+            docEl.style.display = "none";
+            docEl.clientWidth; // Force relayout - important to new Androids
+            docEl.style.display = "";
+
+            console.log(docEl.style.fontSize);
+        };
+
+    // Abort if browser does not support addEventListener
+    if (!doc.addEventListener) return;
+
+    // Test rem support
+    var div = doc.createElement('div');
+    div.setAttribute('style', 'font-size: 1rem');
+
+    // Abort if browser does not recognize rem
+    if (div.style.fontSize != "1rem") return;
+
+    win.addEventListener('resize', recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+  </script>
+
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage('resize', "*");
+    }
+  </script>
+
+</body>
+
+</html>

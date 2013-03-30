@@ -97,4 +97,9 @@ body {
             width:  $from;
         }
     }
+    @media only screen and (min-width : $from * $zoom) and (max-width : $to){
+        body {
+            font-size: $zoom + 0em;
+        }
+    }
 }
