@@ -1,3 +1,7 @@
+html {
+  font-size: 16px;
+  line-height: 1.4375em; }
+
 body {
   font-size: 1em;
   line-height: 1.4375em; }
@@ -59,34 +63,7 @@ body {
 /* Media queries */
 @media only screen and (min-width: 4.79167em) and (max-width: 9.58333em) {
   .container, .overlay {
-    width: 4.79167em; } }
-@media only screen and (min-width: 5.51042em) and (max-width: 9.58333em) {
-  body {
-    font-size: 1.15em; } }
-@media only screen and (min-width: 9.58333em) and (max-width: 14.375em) {
-  .container, .overlay {
-    width: 9.58333em; } }
-@media only screen and (min-width: 11.02083em) and (max-width: 14.375em) {
-  body {
-    font-size: 1.15em; } }
-@media only screen and (min-width: 14.375em) and (max-width: 19.16667em) {
-  .container, .overlay {
-    width: 14.375em; } }
-@media only screen and (min-width: 16.53125em) and (max-width: 19.16667em) {
-  body {
-    font-size: 1.15em; } }
-@media only screen and (min-width: 19.16667em) and (max-width: 23.95833em) {
-  .container, .overlay {
-    width: 19.16667em; } }
-@media only screen and (min-width: 22.04167em) and (max-width: 23.95833em) {
-  body {
-    font-size: 1.15em; } }
-@media only screen and (min-width: 23.95833em) and (max-width: 28.75em) {
-  .container, .overlay {
-    width: 23.95833em; } }
-@media only screen and (min-width: 27.55208em) and (max-width: 28.75em) {
-  body {
-    font-size: 1.15em; } }
+    width: 100%; } }
 @media only screen and (min-width: 28.75em) and (max-width: 33.54167em) {
   .container, .overlay {
     width: 28.75em; } }
@@ -108,36 +85,18 @@ body {
 @media only screen and (min-width: 43.125em) and (max-width: 47.91667em) {
   .container, .overlay {
     width: 43.125em; } }
-@media only screen and (min-width: 49.59375em) and (max-width: 47.91667em) {
-  body {
-    font-size: 1.15em; } }
 @media only screen and (min-width: 47.91667em) and (max-width: 52.70833em) {
   .container, .overlay {
     width: 47.91667em; } }
-@media only screen and (min-width: 55.10417em) and (max-width: 52.70833em) {
-  body {
-    font-size: 1.15em; } }
 @media only screen and (min-width: 52.70833em) and (max-width: 57.5em) {
   .container, .overlay {
     width: 52.70833em; } }
-@media only screen and (min-width: 60.61458em) and (max-width: 57.5em) {
-  body {
-    font-size: 1.15em; } }
 @media only screen and (min-width: 57.5em) and (max-width: 62.29167em) {
   .container, .overlay {
     width: 57.5em; } }
-@media only screen and (min-width: 66.125em) and (max-width: 62.29167em) {
-  body {
-    font-size: 1.15em; } }
 @media only screen and (min-width: 62.29167em) and (max-width: 67.08333em) {
   .container, .overlay {
     width: 62.29167em; } }
-@media only screen and (min-width: 71.63542em) and (max-width: 67.08333em) {
-  body {
-    font-size: 1.15em; } }
 @media only screen and (min-width: 67.08333em) and (max-width: 71.875em) {
   .container, .overlay {
     width: 67.08333em; } }
-@media only screen and (min-width: 77.14583em) and (max-width: 71.875em) {
-  body {
-    font-size: 1.15em; } }

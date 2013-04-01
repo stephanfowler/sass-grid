@@ -17,6 +17,11 @@ $boxBotPad : $baselineBotPad/$baseline * $baseV;
 $boxVPad   : $boxTopPad+$boxBotPad;
 $boxHPad   : $boxVPad * $ratio;
 
+html {
+    font-size: $fontsize + 0px;
+    line-height: $baseV;
+}
+
 body {
     font-size: 1em;
     line-height: $baseV;
@@ -88,7 +93,14 @@ body {
 
 /* Media queries */
 
-@for $i from 1 through 14 {
+@media only screen and (min-width: 4.79167em) and (max-width: 9.58333em) {
+    .container, .overlay {
+        width: 100%;
+    } 
+}
+
+
+@for $i from 6 through 14 {
     //$zoom: (($i+1)/$i - 1)/2 + 1;
     $zoom: 1.15;
     $from: $boxH * $i;
@@ -98,9 +110,12 @@ body {
             width:  $from;
         }
     }
-    @media only screen and (min-width : $from * $zoom) and (max-width : $to){
-        body {
-            font-size: $zoom + 0em;
+
+    @if $i < 9 {
+        @media only screen and (min-width : $from * $zoom) and (max-width : $to){
+            body {
+                font-size: $zoom + 0em;
+            }
         }
     }
 }
